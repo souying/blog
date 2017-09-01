@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>网站信息</title>
+    <link href="/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/admin/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+                <input type="hidden" class="webid" value="gujianwen">
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">站名</label>
+                    <input type="text" class="form-control webname" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">网站logoUrl</label>
+                    <input type="text" class="form-control weburl" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">网站底部信息</label>
+                    <input type="text" class="form-control webfoot" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">网站访问量</label>
+                    <input type="number" class="form-control webnum" id="inputWarning1">
+                </div>
+               
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">网站版本</label>
+                    <input type="text" class="form-control webbanben" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">网站类型</label>
+                    <input type="text" class="form-control webcate" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">网站简介</label>
+                    <textarea class="form-control webcontent" rows="3"></textarea>
+                </div>
+                <button type="button" class="btn btn-info btn-lg btn-block tijiao">更新</button>
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+        $.ajax({
+            type: 'GET',
+            url: '/apiadmin/webone',
+            data: null ,
+            success: function(data){
+                if(data!=null){
+                    // 赋值
+                    $('.webname').val(data.webname);
+                    $('.weburl').val(data.weburl);
+                    $('.webfoot').val(data.webfoot);
+                    $('.webnum').val(data.webnum);
+                    $('.webbanben').val(data.webbanben);
+                    $('.webcate').val(data.webcate);
+                    $('.webcontent').val(data.webcontent);
+                }else{
+                    alert('还没有添加信息，速度添加吧')
+                }
+            }
+        });
+
+        $('.tijiao').on('click',function(){
+            var dd = {
+                webid:$('.webid').val(),
+                webname:$('.webname').val(),
+                weburl:$('.weburl').val(),
+                webfoot:$('.webfoot').val(),
+                webnum:$('.webnum').val(),
+                webbanben:$('.webbanben').val(),
+                webcate:$('.webcate').val(),
+                webcontent:$('.webcontent').val(),
+            }
+            // console.log(dd);
+            $.ajax({
+                type: 'POST',
+                url: '/apiadmin/webup',
+                data: dd ,
+                success: function(data){
+                    console.log(data)
+                    if(data.is==true){
+                        alert(data.msg);
+                        history.go(0); 
+                    }else{
+                        alert('网络错误,请稍后重试');
+                    }
+                }
+            });
+        });
+    </script>
+</html>

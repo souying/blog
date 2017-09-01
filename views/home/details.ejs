@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>详情页</title>
+    <link rel="stylesheet" href="/home/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/home/css/style.css">
+    <link rel="stylesheet" href="/home/css/animate.min.css">
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <link rel="icon" href="/home/img/favicon.png" type="image/x-icon" />
+    <script type="text/javascript" src="/home/js/marked.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/home/js/bootstrap.min.js"></script>
+    <style>
+        pre{
+            background:#ff8800;
+        }
+        .img{
+            margin-bottom:20px;
+        }
+        p{
+            font-size:16px;
+            margin: 0 0 25px;
+        }
+        .item-title{
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+        }
+        .con-title{
+            text-align:center;
+            padding:10px 0px;
+            font-size: 34px;
+            font-weight: 700;
+        }
+        .tcontent img{
+            width:100%;
+            height:100%;
+            margin:0 auto;
+            margin:20px 0px;
+            border-radius:20px;
+        }
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+</head>
+<body>
+<div class="container">
+    <div class="row con-nav">
+        <div class="col-lg-3 col-md-3 col-sm-4">
+            <a class="logo hidden-xs animated fadeInDownBig" href="/">
+                <img src="/home/img/logo.gif" alt="前端资讯-谷建文博客">
+            </a>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-8">
+            <nav class="navbar navbar-default col-lg-12 ous-nav">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand hidden-lg hidden-md hidden-sm" style="color: #fff;" href="#">谷建文个人博客</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse ous-nav-lin" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav ous-nav-font">
+                            <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">心情</a></li>
+                            <li><a href="#">WEB开发</a></li>
+                            <li><a href="#">node</a></li>
+                            <li><a href="#">javascript</a></li>
+                            <li><a href="#">Vue2.0</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <!--左侧开始-->
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 animated fadeIn">
+            <div class="padding0 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="con-title data_title"></div>
+                <div class="hidden-xs item-icon pull-left">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="data_name"></span>
+                </div>
+                <div class="hidden-xs item-icon pull-left">
+                    <span class="glyphicon glyphicon-tag"></span>
+                    <span class="data_tag"></span>
+                </div>
+                <div class="item-icon pull-right">
+                    <span class="glyphicon glyphicon-dashboard"></span>
+                    <span class="data_time"></span>
+                </div>
+                <div class="item-icon pull-right">
+                    <span class="glyphicon glyphicon-heart-empty"></span>
+                    <span class="data_catename"></span>
+                </div>
+            </div>
+            <div class="padding0 col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top content">
+                <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 img">
+                    <!-- <img src="/home/img/a2.jpg" alt="" class="img-rounded"> -->
+                    图片
+                </div>
+                <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 tcontent">
+                    这里是内容
+                </div>
+                <div class=" margin-top share col-lg-12 col-sm-12 col-md-12 col-xs-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-1 hidden-xs" data-share="common">
+                    <span>分享到：</span>
+                    <i class="share-icon btn btn-info" data-name="tsina">新浪微博</i>
+                    <i class="share-icon btn btn-success" data-name="qq">QQ分享</i>
+                    <i class="share-icon btn btn-danger" data-name="qzone">空间分享</i>
+                    <i class="share-icon btn btn-primary" data-name="renren">人人分享</i>
+                    <i class="share-icon btn btn-warning" data-name="douban">豆瓣分享</i>
+                </div>
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top">
+                    <div class="alert alert-success" role="alert">
+                        <a href="javascript:;" class="alert-link">未经同意不得转载，转载请注明地址.</a>
+                    </div>
+                </div>
+                <div class="padding0 col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-xs hidden-sm">
+                    <div class="con-title">推荐文章</div>
+                </div>
+                <div class="padding0 col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-xs hidden-sm tuijie_con">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail item-img">
+                            <img src="/home/img/a4.jpg" alt="...">
+                            <div class="caption">
+                                <h3 class="item-title">文章标题</h3>
+                                <a href="#" class="btn btn-success" role="button">查看全文</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail item-img">
+                            <img src="/home/img/a2.jpg" alt="...">
+                            <div class="caption">
+                                <h3 class="item-title">文章标题</h3>
+                                <a href="#" class="btn btn-success" role="button">查看全文</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail item-img">
+                            <img src="/home/img/a1.jpg" alt="...">
+                            <div class="caption">
+                                <h3 class="item-title">文章标题</h3>
+                                <a href="#" class="btn btn-success" role="button">查看全文</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="padding0 col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-xs hidden-sm">
+                    <!-- <div class="con-title">评论</div> -->
+                </div>
+            </div>
+        </div>
+        <!--左侧结束-->
+        <!--右侧开始-->
+        <div class="col-lg-4 col-md-4 col-sm-4 hidden-xs hidden-sm">
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs hidden-sm animated rotateIn">
+                <div class="con-right-title">搜索</div>
+                <form class="navbar-form center col-lg-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control search_con" placeholder="请输入关键字">
+                    </div>
+                    <span type="submit" class="btn btn-info search_click">搜索</span>
+                </form>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs hidden-sm animated rotateIn">
+                <div class="con-right-title">关注我</div>
+                <div class="gzwm">
+                    <ul class="right-top">
+                        <li class="col-lg-3 col-md-3 col-sm-3 guanzhu-right-icon"><a class="xlwb" href="#" target="_blank">新浪</a></li>
+                        <li class="col-lg-3 col-md-3 col-sm-3 guanzhu-right-icon"><a class="txwb" href="#" target="_blank">腾讯</a></li>
+                        <li class="col-lg-3 col-md-3 col-sm-3 guanzhu-right-icon"><a class="rss" href="portal.php?mod=rss" target="_blank">RSS</a></li>
+                        <li class="col-lg-3 col-md-3 col-sm-3 guanzhu-right-icon"><a class="wx" href="mailto:admin@admin.com">邮箱</a></li>
+                    </ul>
+                </div>
+                <!--tit01 end-->
+                <div class="col-lg-12 right-top-img">
+                    <img src="/home/img/info.png">
+                    <div id="showStr"></div> <!--用来显示逐渐出现的文字-->
+                    <div style="display:none" id="string">从不羡慕别人的优秀，因为相信自己也可以优秀。闲下来时看看书，书本里的故事，总有你学到的人生。 --blog 谷建文
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs hidden-sm animated fadeInUpBig">
+                <div class="con-right-title">标签云</div>
+                <div class="cloud">
+                    <ul>
+                        <li><a href="/tag/心情">心情</a></li>
+                        <li><a href="/tag/html">HTML</a></li>
+                        <li><a href="/">前端设计</a></li>
+                        <li><a href="/">Html</a></li>
+                        <li><a href="/">CSS3</a></li>
+                        <li><a href="/">Html5+css3</a></li>
+                        <li><a href="/">百度</a></li>
+                        <li><a href="/">Javasript</a></li>
+                        <li><a href="/">web开发</a></li>
+                        <li><a href="/">前端设计</a></li>
+                        <li><a href="/">Html</a></li>
+                        <li><a href="/">CSS3</a></li>
+                        <li><a href="/">Html5+css3</a></li>
+                        <li><a href="/">百度</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs hidden-sm animated fadeInDownBig">
+                <div class="ad"> <img src="/home/images/03.jpg"> </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs hidden-sm animated rotateIn">
+                <div class="con-right-title">统计表</div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2 tongji">
+                    <button type="button" class="btn btn-primary col-lg-5 col-sm-5 col-md-5 pull-left">文章<span>(11)</span></button>
+                    <button type="button" class="btn btn-success col-lg-5 col-sm-5 col-md-5 pull-right">留言<span>(11)</span></button>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2 tongji">
+                    <button type="button" class="btn btn-danger col-lg-5 col-sm-5 col-md-5 pull-left">评论<span>(11)</span></button>
+                    <button type="button" class="btn btn-info col-lg-5 col-sm-5 col-md-5 pull-right">访客<span>(11)</span></button>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2 tongji">
+                    <button type="button" class="btn btn-default col-lg-12 col-sm-12 col-md-12">网站稳定运行<span>520天</span></button>
+                </div>
+            </div>
+        </div>
+        <!--右侧结束-->
+    </div>
+</div>
+<!--底部-->
+<div id="footer" class="">
+    <p class="center-block">谷建文博客 Design by DanceSmile 蜀ICP备11002373号-1</p>
+</div>
+<!--返回顶部-->
+<div style="display: none;" id="rocket-to-top">
+    <div style="opacity:0;display: block;" class="level-2"></div>
+    <div class="level-3"></div>
+</div>
+<!-- 背景音乐 -->
+<audio class="mp3" src="" id="music"  autoplay="true" loop="true"></audio>
+<!--返回顶部结束-->
+<script src="/home/js/sucaijiayuan.js"></script>
+<script src="/home/js/share.js"></script>
+    <script>
+
+        // 高亮代码设置
+        marked.setOptions({
+          highlight: function (code) {
+            return hljs.highlightAuto(code).value;
+          }
+        });
+        var url = window.location.href;
+        var id = url.split("/").pop().replace(/(^details)|(\.\S+$)/g,"");
+        // alert(id)
+        // // 获取地址栏参数函数
+        // function GetQueryString(name){
+        //     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        //     var r = window.location.search.substr(1).match(reg);
+        //     if(r!=null)return  unescape(r[2]); return null;
+        // };
+
+
+        // // 调用方法
+        // var id = GetQueryString("id");
+        var con = {
+            id:id
+        }
+        // 文章内容查询
+        $.ajax({
+                type: 'POST',
+                url: '/api/details',
+                data: con,
+                success: function(data){
+                    // console.log(data)
+                    $('.tcontent').html(marked(data.tcontent));
+                    $('.img').html('<img src="'+data.imgurl+'" alt="'+data.tname+'" class="img-rounded">');
+                    $('.data_title').text(data.tname);
+                    $('.data_tag').text(data.tag);
+                    $('.data_time').text(data.time);
+                    $('.data_name').text(data.user.uname);
+                    $('.data_catename').text(data.cate.catename);
+                    $('.mp3').attr('src',data.mp3);
+                    // 分享
+                    var other = {
+                        title: data.tname,
+                        content: data.tj,
+                        url: window.location.href,
+                        img: data.imgurl
+                    };
+                    share({
+                        element: $('.share'),
+                        iconSelector: '.share-icon',
+                        config: {
+                            tsina: other,
+                            qq: other,
+                            qzone: other,
+                            renren: other,
+                            douban: other
+                        }
+                    });
+                }
+            });
+        // 每日一语
+        $.ajax({
+                type: 'GET',
+                url: '/api/new',
+                data: null,
+                success: function(data){
+                    // console.log(data)
+                    // 自动输入
+                        var index = 0;
+                        var str = data.newcontent;
+                        function type() {
+                            // console.log(index)
+                            if(index == str.length) {
+                                index = 0;
+                            }
+                            document.getElementById("showStr").innerText = str.substring(0, index++);
+                        }
+                        setInterval(type, 200); //通过定时器来让文字逐步显示
+                }
+            });
+         //广告接口
+        $.ajax({
+                type: 'GET',
+                url: '/api/addlist',
+                data: null,
+                success: function(data){
+                    // console.log(data)
+                        var htmladd = '<a href="'+data.addurl+'" target="_blank">'
+                    +'<img src="'+data.addimgurl+'">'
+                    +'</a>';
+                    $('.ad').html(htmladd);
+                }
+            });
+
+        //导航分类接口
+        var navhtml = '<li><a href="/list/{0}/page/1">{1}</a></li>'
+        var navhome = '<li><a href="/">首页</a></li>'
+
+        $.ajax({
+                type: 'GET',
+                url: '/api/catelist',
+                data: null,
+                success: function(data){
+                    // console.log(data)
+                    for(var i= 0,str="";i<data.length;i++){
+                     var datas = [
+                            data[i]._id,
+                            data[i].catename,
+                        ];
+                        str += replaceString(navhtml,datas);
+                    }
+
+                    $(".nav").html(navhome+str);
+                } 
+            });
+        var tuijiehtml = '<div class="col-sm-6 col-md-4">'
+                    +'<div class="thumbnail item-img">'
+                    +'<img src="{1}" alt="{2}">'
+                    +'<div class="caption">'
+                    +'<h3 class="item-title">{2}</h3>'
+                    +'<a href="/details/{0}" class="btn btn-success" role="button">查看全文</a>'
+                    +'</div>'
+                    +'</div>'
+                    +'</div>'
+        $.ajax({
+                type: 'GET',
+                url: '/api/show',
+                data: null,
+                success: function(data){
+                    // console.log(data)
+                    if(data.length>=3){
+                        var length = 3;
+                    }else if(data.length<3){
+                        var length = data.length;
+                    }
+                    for(var i= 0,str="";i<length;i++){
+                     var datas = [
+                            data[i]._id,
+                            data[i].imgurl,
+                            data[i].tname,
+                            data[i].time,
+                            data[i].tag
+                        ];
+                        str += replaceString(tuijiehtml,datas);
+                    }
+
+                    $(".tuijie_con").html(str);
+                }
+            });
+        // 字符串函数
+        function replaceString(string, datas) {
+            var str = string;
+            for (var i = 0; i < datas.length; i++) {
+                var regExp = new RegExp("\\{" + i + "\\}", "g");
+                str = str.replace(regExp, datas[i]);
+
+            }
+            return str;
+        }
+        // 搜索
+        $('.search_click').click(function(){
+            if($('.search_con').val().length==0){
+                alert('请输入您的关键字');
+            }else{
+                var cc = $('.search_con').val();
+                window.location.href = '/search/'+cc;
+                console.log(cc)
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>文章回收站列表页面</title>
+    <!-- layui.css -->
+    <link href="/admin/plugin/layui/css/layui.css" rel="stylesheet" />
+    <style>
+        .layui-btn-small {
+            padding: 0 15px;
+        }
+
+        .layui-form-checkbox {
+            margin: 0;
+        }
+
+        tr td:not(:nth-child(0)),
+        tr th:not(:nth-child(0)) {
+            text-align: center;
+        }
+
+        #dataConsole {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <fieldset id="dataConsole" class="layui-elem-field layui-field-title">
+        <legend>控制台</legend>
+        <div class="layui-field-box">
+            <div id="articleIndexTop">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item" style="margin:0;margin-top:15px;">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">关键词</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="keywords" autocomplete="off" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline" style="width:auto">
+                                <button class="layui-btn" lay-submit lay-filter="formSearch">搜索</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="dataList" class="layui-elem-field layui-field-title sys-list-field">
+        <legend style="text-align:center;">文章列表</legend>
+        <div class="layui-field-box">
+            <div id="dataContent" class="">
+                <!--内容区域 ajax获取-->
+                <table style="" class="layui-table" lay-even="">
+                    <colgroup>
+                        <col width="180">
+                        <col>
+                        <col width="150">
+                        <col width="180">
+                        <col width="90">
+                        <col width="90">
+                        <col width="50">
+                        <col width="50">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>发表时间</th>
+                            <th>标题</th>
+                            <th>作者</th>
+                            <th>类别</th>
+                            <th colspan="2">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody class="content">
+                       <!--  <tr>
+                            <input type="hidden" value="" class="hide_id">
+                            <td>2017-03-22 23:07</td>
+                            <td>不落阁后台模板源码分享</td>
+                            <td>Absolutely</td>
+                            <td>Web前端</td>
+                            
+                            <td>
+                                <button class="layui-btn layui-btn-small layui-btn-normal">恢复</button>
+                            </td>
+                            <td>
+                                <button class="layui-btn layui-btn-small layui-btn-danger"><i class="layui-icon">&#xe640;</i></button>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <div id="pageNav"></div>
+            </div>
+        </div>
+    </fieldset>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- layui.js -->
+    <script src="/admin/plugin/layui/layui.js"></script>
+    <!-- layui规范化用法 -->
+    <script type="text/javascript">
+        // layui.config({
+        //     base: './js/'
+        // }).use('datalist');
+    </script>
+    <script>
+        var htm = '<tr>'
+                +'<input type="hidden" value="{0}" class="id">'
+                +'<td>{1}</td>'
+                +'<td>{2}</td>'
+                +'<td>{3}</td>'
+                +'<td>{4}</td>'
+                +'<td>'
+                +'<button class="layui-btn layui-btn-small layui-btn-normal huitopic">恢复</button>'
+                +'</td>'
+                +'<td>'
+                +'<button class="layui-btn layui-btn-small layui-btn-danger remove"><i class="layui-icon">&#xe640;</i></button>'
+                +'</td>'
+                +'</tr>';
+         $.ajax({
+                type: 'GET',
+                url: '/apiadmin/recovery',
+                data: null ,
+                success: function(data){
+                    console.log(data)
+                    for(var i= 0,str="";i<data.length;i++){
+                     var datas = [
+                            data[i]._id,
+                            data[i].time,
+                            data[i].tname,
+                            data[i].user.uname,
+                            data[i].cate.catename,
+                        ];
+
+                         str += replaceString(htm,datas);
+                    };
+
+                    $(".content").html(str);
+                }
+            });
+
+          // 字符串函数
+        function replaceString(string, datas) {
+            var str = string;
+            for (var i = 0; i < datas.length; i++) {
+                var regExp = new RegExp("\\{" + i + "\\}", "g");
+                str = str.replace(regExp, datas[i]);
+
+            }
+            return str;
+        }
+        //恢复文章
+        $('.content').on('click','.huitopic',function(){
+            var _self = this;
+            var id = $(_self).parents('tr').find('.id').val();
+            var dd = {
+                id:id
+            }
+            // console.log(dd)
+            // 
+            $.ajax({
+                type: 'POST',
+                url: '/apiadmin/topicshow',
+                data: dd ,
+                success: function(data){
+                    // console.log(data)
+                    if(data.is==true){
+                        window.location.href='/admin/list' 
+                    }else{
+                        alert('网络错误,请稍后重试');
+                    }
+                }
+            });
+        });
+        // 删除文章
+        $('.content').on('click','.remove',function(){
+            var _self = this;
+            var id = $(_self).parents('tr').find('.id').val();
+            var dd = {
+                id:id
+            }
+            // console.log(dd)
+            // 
+            $.ajax({
+                type: 'POST',
+                url: '/apiadmin/removerecovery',
+                data: dd ,
+                success: function(data){
+                    // console.log(data)
+                    if(data.is==true){
+                        history.go(0); 
+                    }else{
+                        alert('网络错误,请稍后重试');
+                    }
+                }
+            });
+        });
+
+        
+    </script>
+</body>
+</html>

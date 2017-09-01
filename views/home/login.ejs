@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>欢迎登陆</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/home/css/login.css">
+    <link rel="stylesheet" href="/home/css/animate.min.css">
+    <link rel="icon" href="/home/img/favicon.png" type="image/x-icon" />
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--<div id="web_bg" style="position:absolute; width:100%; height:100%; z-index:-1">-->
+    <!--<img style="position:fixed;z-index:-1;" src="http://img18.3lian.com/d/file/201706/06/60644a19c424252ca9de9b59ed444374.jpg" height="100%" width="100%" />-->
+<!--</div>-->
+<div style="height:100px;"></div>
+<section id="registerEnter" class="animated rollIn">
+    <div class="registerEnterBox">
+        <h2>欢迎登陆谷建文个人博客</h2>
+        <div id="RESwitch" class="w120maAuto">
+            <a class="c666b2" data-rel="register" href="#register">注册</a>
+            <a href="#enter" data-rel="enter">登录</a>
+        </div>
+        <section id="register">
+            <form action="#" method="get">
+                <div class="h45b1 b1BottomNone topB3Ra">
+                    <input type="text" placeholder="姓名" class="removeHint consumer" autocomplete="off" name="" tabindex="1" />
+                </div>
+                <div class="h45b1 b1BottomNone">
+                    <input type="text" placeholder="手机或邮箱地址" class="removeHint mobile" autocomplete="off" name="mobile_Email" tabindex="2"/>
+                </div>
+                <div class="h45b1 b1BottomNone">
+                    <input type="password" placeholder="密码不少于6位" class="removeHint password" name="pwd" tabindex="3"/>
+                </div>
+                <div class="h45b1 bottomB3Ra">
+                    <input type="text" placeholder="输入验证码区分大小写" autocomplete="off" class="removeHint verification" name="verification" tabindex="4"/>
+                    <div class="verificationImg registerVn" title="换一张"></div>
+                </div>
+                <label class="registerBtn" for="btn">我的注册</label>
+                <button id="btn" class="formBtn" type="submit"></button>
+            </form>
+            <div class="agreement">点击「注册」按钮，即代表你同意<a href="javascript:">《我的协议》</a></div>
+        </section>
+        <section id="enter" class="hide">
+            <form >
+                <div class="h45b1 b1BottomNone topB3Ra">
+                    <input id="uu" type="text" class="removeHint" placeholder="手机号或邮箱" autocomplete="off" name="mobileOrEmail" tabindex="1"/>
+                </div>
+                <div class="h45b1 b1BottomNone">
+                    <input type="hidden" name="password" />
+                    <input type="password" class="removeHint" placeholder="密码不少于6位" tabindex="2"/>
+                </div>
+                <div class="h45b1 bottomB3Ra">
+                    <input type="text" class="removeHint" placeholder="输入验证码区分大小写" autocomplete="off" name="verification" tabindex="3"/>
+                    <div class="verificationImg verificationER" title="换一张"></div>
+                </div>
+                <label class="registerBtn" for="btn2">登录</label>
+                <button id="btn2" class="formBtn" type="submit"></button>
+                <div>
+                    <label><input type="checkbox" id="remember" name="记住我" checked value="true" />记住我</label>
+                    <a href="javascript:" style="vertical-align:top" class="fr" id="cannot">无法登录？</a>
+                    <div class="mTopBottom20">
+                        <a href="javascript:">社交帐号登录</a>
+                        <div class="fr m50" style="display:none">
+                            <a class="WeChat" href="javascript:"></a>
+                            <a class="Twitter" href="javascript:"></a>
+                            <a class="QQ" href="javascript:"></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <a class="registerBtn download" href="/">进入我的首页</a>
+    </div>
+
+    <div id="popup" class="popup hide">
+        <div class="popup3">
+            <a href="javascript:" class="leftBtn">&larr;</a>
+            <a href="javascript:" class="rightBtn">x</a>
+            <h3>登录我吧</h3>
+            <p>验证码将会发送至你的手机</p>
+            <form>
+                <div class="h45b1 b1BottomNone lrBnone">
+                    <input type="tel" class="mobileNumber removeHint" placeholder="手机号" />
+                </div>
+                <div class="h45b1 bottomB3Ra lrBnone">
+                    <input type="text" class="mobileVerification removeHint" placeholder="输入验证码区分大小写" autocomplete="off" name="verification" />
+                    <div class="verificationImg verificationPopup3" title="换一张"></div>
+                </div>
+                <a href="javascript:" class="getRetrieveBtn">获取验证码</a>
+            </form>
+        </div>
+        <div class="popup2">
+            <a href="javascript:" class="leftBtn">&larr;</a>
+            <a href="javascript:" class="rightBtn">x</a>
+            <h3>找回密码</h3>
+            <p>验证码将会发送至你的注册邮箱或手机</p>
+            <form>
+                <div class="h45b1 b1BottomNone lrBnone">
+                    <input type="text" id="Mobile_or_email" class="removeHint"  placeholder="手机号或邮箱"  />
+                </div>
+                <div class="h45b1 bottomB3Ra lrBnone">
+                    <input type="text" id="Mobile_email_verification" class="removeHint" placeholder="输入验证码区分大小写" name="verification" autocomplete="off" />
+                    <div class="verificationImg verificationPopup2" title="换一张"></div>
+                </div>
+                <a href="javascript:" class="getRetrieveBtn">获取验证码</a>
+            </form>
+        </div>
+        <div class="popup1">
+            <a href="javascript:" class="rightBtn">x</a>
+            <h3>无法登录</h3>
+            <p>我们提供两种方式帮助你重新登录成功</p>
+            <a href="javascript:" class="retrieveBtn">找回密码</a>
+            <a href="javascript:" class="verificationBtn" >使用手机验证登录</a>
+        </div>
+    </div>
+</section>
+    <script src="/home/js/jquery-1-11-1.js"></script>
+    <script src="/home/js/md5.js"></script>
+    <script src="/home/js/login.js"></script>
+    <script type="text/javascript" src="/home/js/canvas-particle.js"></script>
+</body>
+    <script type="text/javascript">
+        /*
+         定义获取m,n之间随机整数的函数
+         */
+        function rand(m,n){
+            // 将结果返回
+            return Math.floor(Math.random()*(n-m+1)) + m;
+        }
+        //配置
+        var config = {
+            vx: 4,//点x轴速度,正为右，负为左
+            vy:  4,//点y轴速度
+            height: 2,//点高宽，其实为正方形，所以不宜太大
+            width: 2,
+            count: 100,//点个数
+            color: rand(1,255)+','+ rand(1,255)+','+ rand(1,255),//点颜色
+            stroke: rand(1,255)+','+ rand(1,255)+','+ rand(1,255),//线条颜色
+            dist: 6000,//点吸附距离
+            e_dist: 20000,//鼠标吸附加速距离
+            max_conn: 10//点到点最大连接数
+        }
+        //调用
+        CanvasParticle(config);
+        //改变背景颜色
+        window.clearInterval(t);
+        var t = setInterval(function(name) {
+            $('body').css({'background':'rgba('+rand(1,255)+','+rand(1,255)+','+rand(1,255)+',0.3)'});
+            $('.h45b1').css({'border-color':'rgba('+rand(1,255)+','+rand(1,255)+','+rand(1,255)+',0.5)'})
+        }, 3000);
+    </script>
+</html>

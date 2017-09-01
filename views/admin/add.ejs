@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>广告管理页面</title>
+    <link href="/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- layui.css -->
+    <link href="/admin/plugin/layui/css/layui.css" rel="stylesheet" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/admin/js/bootstrap.min.js"></script>
+    <style>
+        .layui-btn-small {
+            padding: 0 15px;
+        }
+
+        .layui-form-checkbox {
+            margin: 0;
+        }
+
+        tr td:not(:nth-child(0)),
+        tr th:not(:nth-child(0)) {
+            text-align: center;
+        }
+
+        #dataConsole {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <fieldset id="dataConsole" class="layui-elem-field layui-field-title">
+        <legend>控制台</legend>
+        <div class="layui-field-box">
+            <div id="articleIndexTop">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item" style="margin:0;margin-top:15px;">
+                        <div class="layui-inline">
+                            <div class="layui-input-inline" style="width:auto">
+                                <a id="addArticle" class="layui-btn layui-btn-normal" data-toggle="modal"  data-target=".bs-example-modal-lg">添加站点广告</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="dataList" class="layui-elem-field layui-field-title sys-list-field">
+        <div class="layui-field-box">
+            <div id="dataContent" class="">
+                <!--内容区域 ajax获取-->
+                <table style="" class="layui-table" lay-even="">
+                    <colgroup>
+                        <col width="180">
+                        <col>
+                        <col width="150">
+                        <col width="180">
+                        <col width="90">
+                        <col width="90">
+                        <col width="50">
+                        <col width="50">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>开始投放时间</th>
+                            <th>广告url</th>
+                            <th>图片url</th>
+                            <th>联系信息</th>
+                            <th>广告到期时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody class="content">
+                        <!-- <tr>
+                            <input type="hidden" class="id" value="">
+                            <td>2017-5-36</td>
+                            <td>百度搜索</td>
+                            <td>www.baidu.com/img</td>
+                            <td>50667@163.com</td>
+                            <td>2017-6-36</td>
+                            <td>
+                                <button class="layui-btn layui-btn-small layui-btn-danger"><i class="layui-icon">&#xe640;</i></button>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <div id="pageNav"></div>
+            </div>
+        </div>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">添加新的广告</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="control-label">开始投放时间</label>
+                        <input type="text" class="form-control addtimestart" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="control-label">广告url</label>
+                        <textarea class="form-control addurl" id="message-text"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="recipient-name" class="control-label">广告图片Url</label>
+                        <input type="text" class="form-control addimgurl" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="recipient-name" class="control-label">联系信息</label>
+                        <input type="text" class="form-control addemail" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="recipient-name" class="control-label">广告到期时间</label>
+                        <input type="text" class="form-control addtimeend" id="recipient-name">
+                      </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary tijiao">提交</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <!-- layui.js -->
+    <script src="/admin/plugin/layui/layui.js"></script>
+    <!-- layui规范化用法 -->
+    <!-- <script type="text/javascript">
+        layui.config({
+            base: './js/'
+        }).use('datalist');
+    </script> -->
+</body>
+    <script>
+    var htm = '<tr>'
+                +'<input type="hidden" class="id" value="{0}">'
+                +'<td>{1}</td>'
+                +'<td>{2}</td>'
+                +'<td>{3}</td>'
+                +'<td>{4}</td>'
+                +'<td>{5}</td>'
+                +'<td>'
+                +'<button class="layui-btn layui-btn-small layui-btn-danger remove"><i class="layui-icon">&#xe640;</i></button>'
+                +'</td>'
+                +'</tr>';
+
+        $.ajax({
+                type: 'GET',
+                url: '/apiadmin/addlist',
+                data: null ,
+                success: function(data){
+                    // console.log(data)
+                    for(var i= 0,str="";i<data.length;i++){
+                     var datas = [
+                            data[i]._id,
+                            data[i].addtimestart,
+                            data[i].addurl,
+                            data[i].addimgurl,
+                            data[i].addemail,
+                            data[i].addtimeend
+                        ];
+                        str += replaceString(htm,datas);
+                    }
+
+                    $(".content").html(str);
+                }
+            });
+        // 字符串函数
+        function replaceString(string, datas) {
+            var str = string;
+            for (var i = 0; i < datas.length; i++) {
+                var regExp = new RegExp("\\{" + i + "\\}", "g");
+                str = str.replace(regExp, datas[i]);
+
+            }
+            return str;
+        }
+
+
+        $('.tijiao').on('click',function(){
+            var dd = {
+               addtimestart : $('.addtimestart').val(),
+               addurl : $('.addurl').val(),
+               addimgurl : $('.addimgurl').val(),
+               addemail : $('.addemail').val(),
+               addtimeend : $('.addtimeend').val()
+            }
+            console.log(dd)
+            $.ajax({
+                type: 'POST',
+                url: '/apiadmin/addadd',
+                data: dd ,
+                success: function(data){
+                    console.log(data)
+                    if(data.is==true){
+                        history.go(0); 
+                    }else{
+                        alert('网络错误,请稍后重试');
+                    }
+                }
+            });
+        });
+
+         // 删除
+        $('.content').on('click','.remove',function(){
+            var _self = this;
+            var id = $(_self).parents('tr').find('.id').val();
+            var dd = {
+                id:id
+            }
+            console.log(dd)
+             $.ajax({
+                type: 'POST',
+                url: '/apiadmin/addremove',
+                data: dd ,
+                success: function(data){
+                    console.log(data)
+                    if(data.is==true){
+                        history.go(0); 
+                    }else{
+                        alert('网络错误,请稍后重试');
+                    }
+                }
+            });
+        });
+    </script>
+</html>

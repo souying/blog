@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>列表页</title>
+    <link rel="stylesheet" href="/home/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/home/css/style.css">
+    <link rel="stylesheet" href="/home/css/animate.min.css">
+    <link rel="icon" href="/home/img/favicon.png" type="image/x-icon" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/home/js/bootstrap.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+</head>
+<body>
+<div class="container">
+    <div class="row con-nav">
+        <div class="col-lg-3 col-md-3 col-sm-4">
+            <a class="logo hidden-xs animated fadeInDownBig" href="/">
+                <img src="/home/img/logo.gif" alt="前端资讯-谷建文博客">
+            </a>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-8">
+            <nav class="navbar navbar-default col-lg-12 ous-nav">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand hidden-lg hidden-md hidden-sm" style="color: #fff;" href="#">谷建文个人博客</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse ous-nav-lin" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav ous-nav-font">
+                            <!-- <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">心情</a></li>
+                            <li><a href="#">WEB开发</a></li>
+                            <li><a href="#">node</a></li>
+                            <li><a href="#">javascript</a></li>
+                            <li><a href="#">Vue2.0</a></li> -->
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <!--左侧开始-->
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 animated rollIn">
+            <div class="padding0 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="con-title">文章列表</div>
+            </div>
+            <div class="content col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- <div class="padding0 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="item-wenzhuang">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 hidden-xs hidden-sm item-img">
+                            <img src="/home/img/a1.jpg" alt="">
+                        </div>
+                        <a href="#" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 item-a">
+                            <h2 class="item-title">住在手机里的朋友</h2>
+                            <p class="item-con">
+                                为任意标签添加 .table 类可以为其赋予基本的样式 — 少量的内补（padding）和水平方向的分隔线。这种方式看起来很多余！？但是我们觉得，表格元素使用的很广泛，如果我们为其赋予默认样式可能会影响例如日历和日期选择之类的插件，所以我们选择将此样式独立出来
+                            </p>
+                            <div class="hidden-xs item-icon pull-left">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <span>谷建文</span>
+                            </div>
+                            <div class="hidden-xs item-icon pull-left">
+                                <span class="glyphicon glyphicon-tag"></span>
+                                <span>个人博客</span>
+                            </div>
+                            <div class="item-icon pull-right">
+                                <span class="glyphicon glyphicon-dashboard"></span>
+                                <span>2017-5-20</span>
+                            </div>
+                            <div class="item-icon pull-right">
+                                <span class="glyphicon glyphicon-heart-empty"></span>
+                                <span>浏览(456)</span>
+                            </div>
+                        </a>
+                    </div>
+                </div> -->
+            </div>
+            
+            
+            <!--分页开始-->
+            <div class="padding0 col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <ul class="pagination">
+                    <li>
+                        <a class="prevye" href="javascript:;" aria-label="Previous">
+                            <span aria-hidden="true">上一页</span>
+                        </a>
+                    </li>
+                    <li><a class="dangqianye" href="javascript:;">当前页</a></li>
+                    <li>
+                        <a class="nextye" href="javascript:;" aria-label="Next">
+                            <span aria-hidden="true">下一页</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <!--分页结束-->
+        </div>
+        <!--左侧结束-->
+        <!--右侧开始-->
+        <div class="col-lg-4 col-md-4 col-sm-4 hidden-xs hidden-sm">
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs hidden-sm animated rotateIn">
+                <div class="con-right-title">搜索</div>
+                <form class="navbar-form center col-lg-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control search_con" placeholder="请输入关键字">
+                    </div>
+                    <span type="submit" class="btn btn-info search_click">搜索</span>
+                </form>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs hidden-sm animated rotateIn">
+                <div class="con-right-title">关注我</div>
+                <div class="gzwm">
+                    <ul class="right-top">
+                        <li class="col-lg-3 col-md-3 col-sm-3 guanzhu-right-icon"><a class="xlwb" href="#" target="_blank">新浪</a></li>
+                        <li class="col-lg-3 col-md-3 col-sm-3 guanzhu-right-icon"><a class="txwb" href="#" target="_blank">腾讯</a></li>
+                        <li class="col-lg-3 col-md-3 col-sm-3 guanzhu-right-icon"><a class="rss" href="portal.php?mod=rss" target="_blank">RSS</a></li>
+                        <li class="col-lg-3 col-md-3 col-sm-3 guanzhu-right-icon"><a class="wx" href="mailto:admin@admin.com">邮箱</a></li>
+                    </ul>
+                </div>
+                <!--tit01 end-->
+                <div class="col-lg-12 right-top-img">
+                    <img src="/home/img/info.png">
+                    <div id="showStr"></div> <!--用来显示逐渐出现的文字-->
+                    <div style="display:none" id="string">从不羡慕别人的优秀，因为相信自己也可以优秀。闲下来时看看书，书本里的故事，总有你学到的人生。 --blog 谷建文
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs hidden-sm animated fadeInUpBig">
+                <div class="con-right-title">标签云</div>
+                <div class="cloud">
+                    <ul>
+                        <li><a href="/tag/心情">心情</a></li>
+                        <li><a href="/tag/html">HTML</a></li>
+                        <li><a href="/">前端设计</a></li>
+                        <li><a href="/">Html</a></li>
+                        <li><a href="/">CSS3</a></li>
+                        <li><a href="/">Html5+css3</a></li>
+                        <li><a href="/">百度</a></li>
+                        <li><a href="/">Javasript</a></li>
+                        <li><a href="/">web开发</a></li>
+                        <li><a href="/">前端设计</a></li>
+                        <li><a href="/">Html</a></li>
+                        <li><a href="/">CSS3</a></li>
+                        <li><a href="/">Html5+css3</a></li>
+                        <li><a href="/">百度</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs hidden-sm animated fadeInDownBig">
+                <div class="ad"> <img src="/home/images/03.jpg"> </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs hidden-sm animated rotateIn">
+                <div class="con-right-title">统计表</div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2 tongji">
+                    <button type="button" class="btn btn-primary col-lg-5 col-sm-5 col-md-5 pull-left">文章<span>(11)</span></button>
+                    <button type="button" class="btn btn-success col-lg-5 col-sm-5 col-md-5 pull-right">留言<span>(11)</span></button>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2 tongji">
+                    <button type="button" class="btn btn-danger col-lg-5 col-sm-5 col-md-5 pull-left">评论<span>(11)</span></button>
+                    <button type="button" class="btn btn-info col-lg-5 col-sm-5 col-md-5 pull-right">访客<span>(11)</span></button>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2 tongji">
+                    <button type="button" class="btn btn-default col-lg-12 col-sm-12 col-md-12">网站稳定运行<span>520天</span></button>
+                </div>
+            </div>
+        </div>
+        <!--右侧结束-->
+    </div>
+</div>
+<!--底部-->
+<div id="footer" class="">
+    <p class="center-block">谷建文博客 Design by DanceSmile 蜀ICP备11002373号-1</p>
+</div>
+<!--返回顶部-->
+<div style="display: none;" id="rocket-to-top">
+    <div style="opacity:0;display: block;" class="level-2"></div>
+    <div class="level-3"></div>
+</div>
+<!--返回顶部结束-->
+<script src="/home/js/sucaijiayuan.js"></script>
+<script>
+    // 获取地址栏参数函数
+        // function GetQueryString(name){
+        //     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        //     var r = window.location.search.substr(1).match(reg);
+        //     if(r!=null)return  unescape(r[2]); return null;
+        // };
+
+        var url = window.location.href;
+        var id = url.substring(url.indexOf("list/") + 5,url.indexOf("/page"));
+        var page = url.split("/").pop().replace(/(^page)|(\.\S+$)/g,"");
+        // 调用方法
+        // var id = GetQueryString("id");
+        var con = {
+            id:id,
+            page:page
+        }
+        // console.log(con);
+        var htmllist =   `<div class="padding0 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="item-wenzhuang">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 hidden-xs hidden-sm item-img">
+                        <img src="{1}" alt="{2}">
+                        </div>
+                        <a href="/details/{0}" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 item-a">
+                        <h2 class="item-title">{2}</h2>
+                        <p class="item-con"> {5}</p>
+                        <div class="hidden-xs item-icon pull-left">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span>{7}</span>
+                        </div>
+                        <div class="hidden-xs item-icon pull-left">
+                        <span class="glyphicon glyphicon-tag"></span>
+                        <span>{4}</span>
+                        </div>
+                        <div class="item-icon pull-right">
+                        <span class="glyphicon glyphicon-dashboard"></span>
+                        <span>{3}</span>
+                        </div>
+                        <div class="item-icon pull-right">
+                        <span class="glyphicon glyphicon-heart-empty"></span>
+                        <span>{6}</span>
+                        </div>
+                        </a>
+                        </div>
+                        </div>`
+        // 文章列表查询
+        $.ajax({
+                type: 'POST',
+                url: '/api/listpage',
+                data: con,
+                success: function(data){
+                    // console.log(data)
+                    
+                    for(var i= 0,str="";i<data.length;i++){
+                         var datas = [
+                                data[i]._id,
+                                data[i].imgurl,
+                                data[i].tname,
+                                data[i].time,
+                                data[i].tag,
+                                data[i].tj,
+                                data[i].cate.catename,
+                                data[i].user.uname
+                            ];
+                            str += replaceString(htmllist,datas);
+                        }
+                        if(data==null){
+                             $(".content").html('<span>该分类下还没有文章</span>');
+                        }
+                        $(".content").html(str);
+                        // 分页
+                        $('.dangqianye').text('当前第'+page+'页');
+
+                    }
+                   
+            });
+
+        $('.prevye').click(function(){
+            // alert('11111')
+            if(page<=1){
+                page=2;
+            }
+            window.location.href = '/list/'+id+'/page/'+(parseInt(page)-1);
+        });
+        $('.nextye').click(function(){
+            window.location.href = '/list/'+id+'/page/'+(parseInt(page)+1);
+        });
+        // 每日一语
+        $.ajax({
+                type: 'GET',
+                url: '/api/new',
+                data: null,
+                success: function(data){
+                    // console.log(data)
+                    // 自动输入
+                        var index = 0;
+                        var str = data.newcontent;
+                        function type() {
+                            // console.log(index)
+                            if(index == str.length) {
+                                index = 0;
+                            }
+                            document.getElementById("showStr").innerText = str.substring(0, index++);
+                        }
+                        setInterval(type, 200); //通过定时器来让文字逐步显示
+                }
+            });
+         //广告接口
+        $.ajax({
+                type: 'GET',
+                url: '/api/addlist',
+                data: null,
+                success: function(data){
+                    // console.log(data)
+                        var htmladd = '<a href="'+data.addurl+'" target="_blank">'
+                    +'<img src="'+data.addimgurl+'">'
+                    +'</a>';
+                    $('.ad').html(htmladd);
+                }
+            });
+
+        //导航分类接口
+        var navhtml = '<li><a href="/list/{0}/page/1">{1}</a></li>'
+        var navhome = '<li><a href="/">首页</a></li>'
+
+        $.ajax({
+                type: 'GET',
+                url: '/api/catelist',
+                data: null,
+                success: function(data){
+                    // console.log(data)
+                    for(var i= 0,str="";i<data.length;i++){
+                     var datas = [
+                            data[i]._id,
+                            data[i].catename,
+                        ];
+                        str += replaceString(navhtml,datas);
+                    }
+
+                    $(".nav").html(navhome+str);
+                } 
+            });
+        // 字符串函数
+        function replaceString(string, datas) {
+            var str = string;
+            for (var i = 0; i < datas.length; i++) {
+                var regExp = new RegExp("\\{" + i + "\\}", "g");
+                str = str.replace(regExp, datas[i]);
+
+            }
+            return str;
+        }
+        // 搜索
+        $('.search_click').click(function(){
+            if($('.search_con').val().length==0){
+                alert('请输入您的关键字');
+            }else{
+                var cc = $('.search_con').val();
+                window.location.href = '/search/'+cc;
+                console.log(cc)
+            }
+        });
+</script>
+</body>
+</html>

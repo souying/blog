@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>博主信息</title>
+    <link href="/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/admin/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+                <input type="hidden" value="gujianwen" class="infoid">
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">博主姓名</label>
+                    <input type="text" class="form-control infoname" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">博主兴趣</label>
+                    <input type="text" class="form-control infolive" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">博主QQ</label>
+                    <input type="text" class="form-control infoqq" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">博主邮箱</label>
+                    <input type="text" class="form-control infoemail" id="inputWarning1">
+                </div>
+               
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">博主Github</label>
+                    <input type="text" class="form-control infogithub" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">格言语录</label>
+                    <input type="text" class="form-control infoyuyan" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">技术方向</label>
+                    <input type="text" class="form-control infohtml" id="inputWarning1">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" for="inputWarning1">博主简介</label>
+                    <textarea class="form-control infocon" rows="10"></textarea>
+                </div>
+                <button type="button" class="btn btn-info btn-lg btn-block tijiao">更新</button>
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+        $.ajax({
+            type: 'GET',
+            url: '/apiadmin/infoone',
+            data: null ,
+            success: function(data){
+                if(data!=null){
+                    // 赋值
+                    $('.infoname').val(data.infoname);
+                    $('.infolive').val(data.infolive);
+                    $('.infoqq').val(data.infoqq);
+                    $('.infoemail').val(data.infoemail);
+                    $('.infogithub').val(data.infogithub);
+                    $('.infoyuyan').val(data.infoyuyan);
+                    $('.infohtml').val(data.infohtml);
+                    $('.infocon').val(data.infocon);
+                }else{
+                    alert('还没有添加信息，速度添加吧')
+                }
+            }
+        });
+        $('.tijiao').on('click',function(){
+            var dd = {
+                infoid:$('.infoid').val(),
+                infoname:$('.infoname').val(),
+                infolive:$('.infolive').val(),
+                infoqq:$('.infoqq').val(),
+                infoemail:$('.infoemail').val(),
+                infogithub:$('.infogithub').val(),
+                infoyuyan:$('.infoyuyan').val(),
+                infohtml:$('.infohtml').val(),
+                infocon:$('.infocon').val()
+            }
+            // console.log(dd);
+            $.ajax({
+                type: 'POST',
+                url: '/apiadmin/infoup',
+                data: dd ,
+                success: function(data){
+                    console.log(data)
+                    if(data.is==true){
+                        alert(data.msg);
+                        history.go(0); 
+                    }else{
+                        alert('网络错误,请稍后重试');
+                    }
+                }
+            });
+        });
+    </script>
+</html>

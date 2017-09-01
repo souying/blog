@@ -1,0 +1,260 @@
+li{
+    list-style: none;
+}
+.img img{
+    width:100%;
+    max-height:100%;
+}
+.p-pull{
+    text-indent:2em;
+    margin:15px 0;
+    font-size:14px;
+}
+.padding0{
+    padding:0;
+}
+pre {
+    position: relative;
+    margin-bottom: 24px;
+    border-radius: 3px;
+    border: 1px solid #C3CCD0;
+    background: #FFF;
+    overflow: hidden;
+}
+
+code {
+    display: block;
+    padding: 12px 24px;
+    overflow-y: auto;
+    font-weight: 300;
+    font-family: Menlo, monospace;
+    font-size: 0.8em;
+}
+.hljs ol li{
+    margin-left: 30px;
+    list-style-type: decimal-leading-zero;
+}
+
+.con-nav{
+    margin:20px 0px;
+}
+.ous-nav{
+    background: #5cb85c;
+    border-radius: 40px;
+    border-color:#fff;
+}
+.logo{
+    display: block;
+    height: 50px;
+    margin:0 auto;
+}
+.logo>img{
+    height: 50px;
+}
+.ous-nav-font{
+    font-size: 18px;
+
+}
+.ous-nav-font li:hover{
+    background:#ff8800;
+}
+.ous-nav-font li a{
+    color: #fff!important;
+}
+/*轮播图*/
+.lun-con img{
+    width:100%;
+    height:280px;
+}
+/*首页图文*/
+
+/*.文章推荐*/
+.con-title{
+    border-bottom:3px solid #f0ad4e;
+    margin:10px 0px;
+    padding-bottom: 5px;
+    font-size: 18px;
+}
+.item-wenzhuang{
+    height:auto;
+    overflow: hidden;
+    padding:20px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.item-img{
+    padding: 0;
+    overflow: hidden;
+}
+.item-img>img{
+    width:100%;
+    height:130px;
+    -moz-transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+}
+.item-img:hover img{
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+}
+.item-a{
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+.item-a:hover{
+    text-decoration: none;
+    color: #333;
+}
+.item-title{
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    margin-bottom:10px;
+    font-weight: 800;
+    margin-top: 10px;
+}
+.item-title:hover{
+    color:red;
+}
+.item-con{
+    height:60px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+.item-icon{
+    margin-right:8px;
+}
+/*右侧开始*/
+.con-right-title{
+    border-bottom:1px solid #f0f0f0;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+/*搜索*/
+.center{
+    margin:20px 20px;
+}
+/* 关注我样式 */
+.right-top{
+    margin-top:10px;
+    padding:0;
+}
+.guanzhu-right-icon{
+    height:100px;
+}
+.gzwm li a { color: #747F8C; width: 52px; text-align: center; padding-top: 60px; float: left; }
+.gzwm .rss { background: url(../images/ico_04_1.jpg) no-repeat scroll 0% 0% transparent; }
+.gzwm .rss:hover { color: #000; background: url(../images/ico_04.png) no-repeat scroll 0% 0% transparent; }
+.gzwm .xlwb { background: url(../images/ico_05_1.jpg) no-repeat scroll 0% 0% transparent; }
+.gzwm .xlwb:hover { color: #000; background: url(../images/ico_05.png) no-repeat scroll 0% 0% transparent; }
+.gzwm .txwb { background: url(../images/ico_06_1.jpg) no-repeat scroll 0% 0% transparent; }
+.gzwm .txwb:hover { color: #000; background: url(../images/ico_06.png) no-repeat scroll 0% 0% transparent; }
+.gzwm .wx { background: url(../images/ico_07_1.jpg) no-repeat scroll 0% 0% transparent; }
+.gzwm .wx:hover { color: #000; background: url(../images/ico_07.png) no-repeat scroll 0% 0% transparent; }
+.right-top-img>img{
+    width: 100%;
+    height:160px;
+}
+.right-top-img{
+    margin-top:10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+#showStr{
+    position: absolute;
+    font-size: 12px;
+    top:55px;
+    left:68px;
+    padding-right: 60px;
+    color: #fff;
+}
+/*标签云*/
+.cloud { width: 100%; clear: both; overflow: hidden }
+.cloud ul li { line-height: 26px; height: 30px; display: block; background: #999; float: left; padding: 3px 11px; margin: 10px 10px 0 0; border-radius: 8px; -moz-transition: all 0.5s; -webkit-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
+.cloud ul li a { color: #FFF }
+.cloud ul li:nth-child(8n-7) { background: #8A9B0F }
+.cloud ul li:nth-child(8n-6) { background: #EB6841 }
+.cloud ul li:nth-child(8n-5) { background: #3FB8AF }
+.cloud ul li:nth-child(8n-4) { background: #FE4365 }
+.cloud ul li:nth-child(8n-3) { background: #FC9D9A }
+.cloud ul li:nth-child(8n-2) { background: #EDC951 }
+.cloud ul li:nth-child(8n-1) { background: #C8C8A9 }
+.cloud ul li:nth-child(8n) { background: #83AF9B }
+.cloud ul li:first-child { background: #036564 }a
+.cloud ul li:last-child { background: #3299BB }
+.cloud ul li:hover { border-radius: 0; text-shadow: #000 1px 1px 1px }
+.cloud ul li :hover {text-decoration: none; }
+/*首页右侧广告 300*/
+.ad { width: 100%; overflow: hidden; margin: 30px 0 }
+.ad img { width:100%; }
+/*统计表*/
+.tongji{
+    margin-top:15px;
+}
+/*友情链接*/
+.links { width: 100%; overflow: hidden; clear: both }
+.links h3 { line-height: 40px; color: #38485A; font-size: 18px; border-bottom: 1px solid #E6E6E6; height: 40px; margin-bottom: 20px }
+.links h3 span { float: right; font-size: 12px; }
+.links h3 span a { color: #999; padding: 0 5px }
+.links h3 span a:hover { color: #F60; text-decoration: underline }
+.links ul { background: #f9f9f9; padding: 10px; overflow: hidden; border: #e9e9e9 1px solid }
+.links ul li { float: left; padding: 5px 8px }
+.links ul li a:hover { color: #000 }
+/*底部*/
+#footer{
+    height:30px;
+    background:#333;
+    overflow: hidden;
+}
+#footer p{
+    line-height:30px;
+    color:#fff;
+    text-align: center;
+}
+/*返回顶部*/
+#rocket-to-top div {
+    left: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 149px;
+}
+#rocket-to-top .level-2 {
+    background: url("../img/rocket_button_up.png") no-repeat scroll -149px 0 transparent;
+    display: none;
+    height: 250px;
+    opacity: 0;
+    z-index: 1;
+}
+#rocket-to-top .level-3 {
+    background: none repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 150px;
+    z-index: 2;
+}
+#rocket-to-top {
+    background: url("../img/rocket_button_up.png") no-repeat scroll 0 0 transparent;
+    cursor: default;
+    display: block;
+    height: 250px;
+    margin: -125px 0 0;
+    overflow: hidden;
+    padding: 0;
+    position: fixed;
+    right: 0;
+    top: 80%;
+    width: 149px;
+    z-index: 11;
+}
+/*文章详情页*/
+.margin-top{
+    margin-top:20px;
+}

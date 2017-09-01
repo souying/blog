@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>网站高级设置页面</title>
+    <link href="/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/css/markdown.css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/admin/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label for="recipient-name" class="control-label">注册权限</label>
+                    <label for="recipient-name" class="control-label">1启动注册0为关闭注册</label>
+                    <input type="hidden" value="gujianwen" class="regid">
+                    <input type="number" class="form-control newemail isreg" id="recipient-name">
+                  </div>
+                <button type="button" class="btn btn-primary btn-lg btn-block tijiao">提交</button>
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+        $.ajax({
+            type: 'GET',
+            url: '/apiadmin/isregone',
+            data: null ,
+            success: function(data){
+                if(data!=null){
+                    // 赋值
+                    $('.isreg').val(data.isreg);
+                }else{
+                    alert('还没有设置注册权限')
+                }
+            }
+        });
+
+        $('.tijiao').on('click',function(){
+            // alert('111111111');
+            var dd = {
+                regid : $('.regid').val(),
+                isreg : $('.isreg').val()
+            }
+            console.log(dd)
+            $.ajax({
+                type: 'POST',
+                url: '/apiadmin/isreg',
+                data: dd ,
+                success: function(data){
+                    console.log(data)
+                    if(data.is==true){
+                        alert(data.msg);
+                        history.go(0); 
+                    }else{
+                        alert('网络错误,请稍后重试');
+                    }
+                }
+            });
+        });
+    </script>
+</html>

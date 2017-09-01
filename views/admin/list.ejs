@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>数据列表页面</title>
+    <!-- layui.css -->
+    <link href="/admin/plugin/layui/css/layui.css" rel="stylesheet" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        .layui-btn-small {
+            padding: 0 15px;
+        }
+
+        .layui-form-checkbox {
+            margin: 0;
+        }
+
+        tr td:not(:nth-child(0)),
+        tr th:not(:nth-child(0)) {
+            text-align: center;
+        }
+
+        #dataConsole {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <fieldset id="dataConsole" class="layui-elem-field layui-field-title">
+        <legend>控制台</legend>
+        <div class="layui-field-box">
+            <div id="articleIndexTop">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item" style="margin:0;margin-top:15px;">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">关键词</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="keywords" autocomplete="off" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline" style="width:auto">
+                                <button class="layui-btn" lay-submit lay-filter="formSearch">搜索</button>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline" style="width:auto">
+                                <a href="/admin/addarticle" id="addArticle" class="layui-btn layui-btn-normal">发表文章</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="dataList" class="layui-elem-field layui-field-title sys-list-field">
+        <legend style="text-align:center;">文章列表</legend>
+        <div class="layui-field-box">
+            <div id="dataContent" class="">
+                <!--内容区域 ajax获取-->
+                <table style="" class="layui-table" lay-even="">
+                    <colgroup>
+                        <col width="180">
+                        <col>
+                        <col width="150">
+                        <col width="180">
+                        <col width="90">
+                        <col width="90">
+                        <col width="50">
+                        <col width="50">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>发表时间</th>
+                            <th>标题</th>
+                            <th>作者</th>
+                            <th>类别</th>
+                            <th colspan="2">选项</th>
+                            <th colspan="2">操作</th>
+                            <th>查看</th>
+                        </tr>
+                    </thead>
+                    <tbody class="content">
+                        <!-- <tr>
+                            <input type="hidden" value="{0}" class="id">
+                            <td>2017-03-22 23:07</td>
+                            <td>不落阁后台模板源码分享</td>
+                            <td>Absolutely</td>
+                            <td>Web前端</td>
+                            <td>
+                                <div class="layui-btn layui-btn-danger layui-btn-small">置顶</div>
+                            </td>
+                           <td>
+                                <div class="layui-btn layui-btn-success layui-btn-small">已推荐</div>
+                           </td>
+                            <td>
+                                <button class="layui-btn layui-btn-small layui-btn-normal"><i class="layui-icon">&#xe642;</i></button>
+                            </td>
+                            <td>
+                                <button class="layui-btn layui-btn-small layui-btn-danger"><i class="layui-icon">&#xe640;</i></button>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <div id="pageNav"></div>
+            </div>
+        </div>
+    </fieldset>
+    <!-- layui.js -->
+    <script src="/admin/plugin/layui/layui.js"></script>
+    <!-- layui规范化用法 -->
+    <script type="text/javascript">
+        // layui.config({
+        //     base: './js/'
+        // }).use('datalist');
+    </script>
+    <script>
+        // 获取数据
+        var htm =  '<tr>'
+                + '<input type="hidden" value="{0}" class="id">'
+                +'<td>{1}</td>'
+                + '<td>{2}</td>'
+                +'<td>{3}</td>'
+                +'<td>{4}</td>'
+                +'<td>'
+                +'{5}'
+                +'</td>'
+                +'<td>'
+                +'{6}'
+                +'</td>'
+                +'<td>'
+                +'<button class="layui-btn layui-btn-small layui-btn-normal uptopic"><i class="layui-icon">&#xe642;</i></button>'
+                +'</td>'
+                +'<td>'
+                +'<button class="layui-btn layui-btn-small layui-btn-danger removetopic"><i class="layui-icon">&#xe640;</i></button>'
+                +'</td>'
+                +'<td><a href="/details/{0}" target="_blank">查看</a></td>'
+                + '<tr>';
+         $.ajax({
+                type: 'GET',
+                url: '/apiadmin/articlelist',
+                data: null ,
+                success: function(data){
+                    console.log(data)
+                    for(var i= 0,str="";i<data.length;i++){
+                        if(data[i].recommend==1){
+                            var a = '<div class="layui-btn layui-btn-success layui-btn-small recommend">取消推荐</div>'
+                        }else if(data[i].recommend==0){
+                            var a = '<div class="layui-btn layui-btn-success layui-btn-small recommend">推荐</div>'
+                        }
+                        if(data[i].top==1){
+                            var b = '<div class="layui-btn layui-btn-danger layui-btn-small top">取消置顶</div>'
+                        }else if(data[i].top==0){
+                            var b = '<div class="layui-btn layui-btn-danger layui-btn-small top">置顶</div>'
+                        }
+                     var datas = [
+                            data[i]._id,
+                            data[i].time,
+                            data[i].tname,
+                            data[i].user.uname,
+                            data[i].cate.catename,
+                        ];
+                        datas.push(b);
+                        datas.push(a);
+                        str += replaceString(htm,datas);
+                    }
+
+                    $(".content").html(str);
+                }
+            });
+        // 字符串函数
+        function replaceString(string, datas) {
+            var str = string;
+            for (var i = 0; i < datas.length; i++) {
+                var regExp = new RegExp("\\{" + i + "\\}", "g");
+                str = str.replace(regExp, datas[i]);
+
+            }
+            return str;
+        }
+        // 置顶
+        $('.content').on('click','.top',function(){
+            var _self = this;
+            var id = $(_self).parents('tr').find('.id').val();
+            var dd = {
+                id:id
+            }
+            // console.log(dd)
+            $.ajax({
+                type: 'POST',
+                url: '/apiadmin/topictop',
+                data: dd ,
+                success: function(data){
+                    console.log(data)
+                    if(data.is==true){
+                        history.go(0); 
+                    }else{
+                        alert('网络错误,请稍后重试');
+                    }
+                }
+            });
+        });
+        // 推荐
+        $('.content').on('click','.recommend',function(){
+            var _self = this;
+            var id = $(_self).parents('tr').find('.id').val();
+            var dd = {
+                id:id
+            }
+            // console.log(dd)
+             $.ajax({
+                type: 'POST',
+                url: '/apiadmin/topicrecommend',
+                data: dd ,
+                success: function(data){
+                    console.log(data)
+                    if(data.is==true){
+                        history.go(0); 
+                    }else{
+                        alert('网络错误,请稍后重试');
+                    }
+                }
+            });
+        });
+        //移动到垃圾箱
+        $('.content').on('click','.removetopic',function(){
+            var _self = this;
+            var id = $(_self).parents('tr').find('.id').val();
+            var dd = {
+                id:id
+            }
+            // console.log(dd)
+            // 
+            $.ajax({
+                type: 'POST',
+                url: '/apiadmin/topicshow',
+                data: dd ,
+                success: function(data){
+                    console.log(data)
+                    if(data.is==true){
+                        history.go(0); 
+                    }else{
+                        alert('网络错误,请稍后重试');
+                    }
+                }
+            });
+        });
+        //修改文章
+        $('.content').on('click','.uptopic',function(){
+            var _self = this;
+            var id = $(_self).parents('tr').find('.id').val();
+            
+            window.location.href='/admin/uparticle?id='+id
+            
+        });
+    </script>
+</body>
+</html>
