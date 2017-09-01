@@ -7,8 +7,7 @@
 [演示地址1](http://www.jiaoyiba.cc/) | [演示地址2](http://www.jiaoyiba.cc) | 作者QQ：100101065
 
 ## 演示
-- 地址1：[http://www.jiaoyiba.cc](http://112.74.63.122)
-- 地址2(域名没有备案)：[http://www.jiaoyiba.cc](http://www.blogdiv.com)
+- 地址：[http://www.jiaoyiba.cc](http://www.jiaoyiba.cc)
 
 ## 安装执行命令
 
